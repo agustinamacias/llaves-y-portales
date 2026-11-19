@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reservá tu lugar · Llaves y Portales</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#7A2621">
+<meta name="theme-color" content="#352B26">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css?v=10">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="estilos.css?v=11">
 </head>
 <body class="fondo-pago">
 <main class="pago">
 
   <section class="pago-cab">
     <a class="label volver" href="index.html">← Volver</a>
-    <div style="display: flex; flex-direction: column; gap: 10px">
-      <div class="label oro">Llaves y Portales · 05.12</div>
+    <div class="cab-txt">
+      <div class="label">Llaves y Portales · 05.12</div>
       <h1>RESERVÁ TU LUGAR</h1>
       <p>¡Estás a solo dos pasos! Al hacer la transferencia recordá mandarme el comprobante por WhatsApp para confirmar tu lugar.</p>
     </div>
@@ -31,23 +32,17 @@
       <div class="monto">$59.000</div>
     </div>
     <div class="cuenta">
-      <div><div><span class="label">Alias</span><span class="val" id="alias">mariaagustinamacias</span></div><button class="copiar" data-copiar="alias">COPIAR</button></div>
-      <div><div><span class="label">CBU / CVU</span><span class="val" id="cvu">0000003100018805734316</span></div><button class="copiar" data-copiar="cvu">COPIAR</button></div>
-      <div><div><span class="label">Titular</span><span class="val">Maria Agustina Macias · Mercado Pago</span></div></div>
+      <div><span class="label">Alias</span><span class="val sel">mariaagustinamacias</span></div>
+      <div><span class="label">CBU / CVU</span><span class="val sel cvu">0000003100018805734316</span></div>
+      <div><span class="label">Titular</span><span class="val">Maria Agustina Macias<br>Mercado pago</span></div>
     </div>
+    <p class="nota-copiar">Mantené presionado el alias para copiarlo.</p>
   </section>
 
   <section class="paso">
     <div class="num"><span>02</span><h2>Mandame el comprobante</h2></div>
     <p class="sub">Enviá la captura de la transferencia por WhatsApp para confirmar tu lugar.</p>
     <a class="boton" href="https://wa.link/a7tm5e" target="_blank" rel="noopener">Enviar comprobante</a>
-  </section>
-
-  <section class="despues">
-    <div class="label">Qué pasa después</div>
-    <p>🗝️ Te confirmo tu lugar por WhatsApp.</p>
-    <p>🗝️ En los siguientes días te va a estar llegando el formulario de balance para que repases tu año antes del sábado 05.</p>
-    <p>🗝️ Unos días antes voy a estar armando un grupo de WhatsApp para pasarles toda la información.</p>
   </section>
 
   <section class="pie-datos">
@@ -61,14 +56,29 @@
 
 </main>
 <script>
-document.querySelectorAll('.copiar').forEach(function (b) {
-  b.addEventListener('click', function () {
-    var t = document.getElementById(b.dataset.copiar).textContent.trim();
-    var ok = function () { b.textContent = 'COPIADO'; b.classList.add('ok'); setTimeout(function () { b.textContent = 'COPIAR'; b.classList.remove('ok'); }, 1800); };
-    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(ok, ok); }
-    else { var r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copiar)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); } catch (e) {} ok(); }
+(function () {
+  var groups = [
+    '.pago-cab .cab-txt > *',
+    '.paso .num, .precio-pago, .cuenta > div, .nota-copiar, .paso .sub, .paso .boton',
+    '.pie-datos > *',
+    '.pago-cierre img'
+  ];
+  var els = [];
+  groups.forEach(function (s) {
+    document.querySelectorAll(s).forEach(function (el) {
+      el.classList.add('revelar');
+      var sib = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.matches(s); });
+      var i = sib.indexOf(el);
+      if (i > 0) el.style.setProperty('--d', Math.min(i, 5) * 0.06 + 's');
+      els.push(el);
+    });
   });
-});
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.1 });
+  els.forEach(function (e) { io.observe(e); });
+})();
 </script>
 </body>
 </html>
