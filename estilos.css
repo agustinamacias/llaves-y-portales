@@ -33,8 +33,8 @@ h1, h2 { margin: 0; font-weight: 400; }
 
 /* ---------- FOTO + DATOS ---------- */
 .foto-datos .foto { position: relative; height: 366px; background: var(--sand); }
-.foto-datos .foto img.retrato { width: 100%; height: 100%; object-fit: cover; object-position: 50% 49%; }
-.foto-datos .lucky { right: -36px; top: 54px; width: 150px; transform: rotate(-14deg); }
+.foto-datos .foto img.retrato { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.foto-datos .lucky { right: 10px; top: 54px; width: 130px; transform: rotate(-14deg); }
 .datos { padding: 0 24px; border-bottom: 1px solid var(--sand); }
 .dato { padding: 24px 0; border-bottom: 1px solid var(--sand); display: flex; flex-direction: column; gap: 6px; }
 .dato:last-child { border-bottom: 0; }
