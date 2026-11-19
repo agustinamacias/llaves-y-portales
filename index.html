@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css?v=5">
+<link rel="stylesheet" href="estilos.css?v=6">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -184,7 +184,7 @@
     if (el.classList.contains('revelar-sticker')) return;
     var sib = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains('revelar') || c.classList.contains('revelar-img') || (c.firstElementChild && c.firstElementChild.classList.contains('revelar-img')); });
     var i = sib.indexOf(el); if (i < 0 && el.parentNode.parentNode) { sib = Array.prototype.slice.call(el.parentNode.parentNode.children); i = sib.indexOf(el.parentNode); }
-    if (i > 0) el.style.setProperty('--d', Math.min(i, 6) * 0.09 + 's');
+    if (i > 0) el.style.setProperty('--d', Math.min(i, 5) * 0.05 + 's');
   });
   if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
   var io = new IntersectionObserver(function (entries) {
