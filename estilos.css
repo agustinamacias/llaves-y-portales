@@ -212,7 +212,7 @@ h1, h2 { margin: 0; font-weight: 400; }
 
 /* ================= PAGINA DE PAGO ================= */
 .pago { max-width: 560px; margin: 0 auto; background: var(--nori); min-height: 100vh; }
-.pago-cab { background: linear-gradient(180deg, rgba(24,17,1,.62) 0%, rgba(24,17,1,.35) 55%, rgba(24,17,1,0) 100%), url(img/agus.jpg) 50% 88% / cover no-repeat, var(--madera); min-height: 340px; color: var(--nori); padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 22px; }
+.pago-cab { background: linear-gradient(180deg, rgba(24,17,1,.72) 0%, rgba(24,17,1,.5) 55%, rgba(24,17,1,.3) 100%), url(img/agus.jpg) 50% 88% / cover no-repeat, var(--madera); min-height: 222px; color: var(--nori); padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 22px; }
 .pago-cab .volver { color: #EFE9DE; text-decoration: none; }
 .pago-cab .label.oro { color: var(--butter); }
 .pago-cab h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: 30px; letter-spacing: 1px; line-height: 1.05; }
