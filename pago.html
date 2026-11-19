@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="estilos.css?v=11">
+<link rel="stylesheet" href="estilos.css?v=12">
 </head>
 <body class="fondo-pago">
 <main class="pago">
@@ -32,11 +32,10 @@
       <div class="monto">$59.000</div>
     </div>
     <div class="cuenta">
-      <div><span class="label">Alias</span><span class="val sel">mariaagustinamacias</span></div>
-      <div><span class="label">CBU / CVU</span><span class="val sel cvu">0000003100018805734316</span></div>
+      <div class="fila"><div class="dato-c"><span class="label">Alias</span><span class="val sel" id="alias">mariaagustinamacias</span></div><button class="copiar" data-copiar="alias">COPIAR</button></div>
+      <div class="fila"><div class="dato-c"><span class="label">CBU / CVU</span><span class="val sel cvu" id="cvu">0000003100018805734316</span></div><button class="copiar" data-copiar="cvu">COPIAR</button></div>
       <div><span class="label">Titular</span><span class="val">Maria Agustina Macias<br>Mercado pago</span></div>
     </div>
-    <p class="nota-copiar">Mantené presionado el alias para copiarlo.</p>
   </section>
 
   <section class="paso">
@@ -56,10 +55,18 @@
 
 </main>
 <script>
+document.querySelectorAll('.copiar').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = document.getElementById(b.dataset.copiar).textContent.trim();
+    var ok = function () { b.textContent = 'COPIADO'; b.classList.add('ok'); setTimeout(function () { b.textContent = 'COPIAR'; b.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(ok, ok); }
+    else { var r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copiar)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); } catch (e) {} ok(); }
+  });
+});
 (function () {
   var groups = [
     '.pago-cab .cab-txt > *',
-    '.paso .num, .precio-pago, .cuenta > div, .nota-copiar, .paso .sub, .paso .boton',
+    '.paso .num, .precio-pago, .cuenta > div, .paso .sub, .paso .boton',
     '.pie-datos > *',
     '.pago-cierre img'
   ];

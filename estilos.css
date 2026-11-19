@@ -235,7 +235,10 @@ h1, h2 { margin: 0; font-weight: 400; }
 .cuenta .val { font-size: 15px; word-break: break-all; }
 .cuenta .val.sel { user-select: all; -webkit-user-select: all; letter-spacing: 1px; }
 .cuenta .val.cvu { font-size: 14px; letter-spacing: .5px; }
-.nota-copiar { font-size: 12px; line-height: 1.5; color: var(--moss); }
+.cuenta > div.fila { flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; }
+.cuenta .dato-c { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.copiar { flex: none; border: 1px solid var(--ash); background: transparent; font-family: 'Jost', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 2px; padding: 8px 12px; cursor: pointer; color: var(--ash); }
+.copiar.ok { background: var(--ash); color: var(--nori); }
 .paso .boton { align-self: center; background: var(--vino); color: var(--nori); }
 .pie-datos { background: #E2E1D9; padding: 32px 24px 48px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--moss); }
 .pie-datos .label { line-height: 1.9; letter-spacing: 2px; }
