@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css?v=12">
+<link rel="stylesheet" href="estilos.css?v=13">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -142,7 +142,7 @@
     <div class="cab">
       <div class="label">Solo 10 lugares · Primera edición</div>
       <h2>TU LUGAR EN LLAVES Y PORTALES</h2>
-      <div class="label cuando">Sáb 5/12 · 10 a 13 hs · Galpón &amp; Co · Santa Fe</div>
+      <div class="label cuando una-linea">Sáb 5/12 · 10 a 13 hs · Galpón &amp; Co · Santa Fe</div>
     </div>
     <div class="precio">
       <div class="antes">$88.000</div>
@@ -157,7 +157,7 @@
       <div><span>🗝️</span><p>Formulario de balance previo para llegar con tu año ya repasado.</p></div>
     </div>
     <a class="boton" href="pago.html">Quiero mi lugar</a>
-    <p class="nota">Inscripción abierta hasta el jueves 03/12 o hasta completar los 10 lugares.</p>
+    <p class="nota una-linea">Inscripción abierta hasta el jueves 03/12 o hasta completar los 10 lugares.</p>
   </section>
 
   <!-- CIERRE -->
@@ -168,6 +168,23 @@
   </section>
 
 </main>
+<script>
+(function () {
+  var els = document.querySelectorAll('.una-linea');
+  function ajustar() {
+    els.forEach(function (el) {
+      el.style.fontSize = '';
+      var s = el.closest('section'), cs = getComputedStyle(s);
+      var w = s.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var t = parseFloat(getComputedStyle(el).fontSize);
+      while (el.scrollWidth > w && t > 8) { t -= 0.25; el.style.fontSize = t + 'px'; }
+    });
+  }
+  ajustar();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar);
+  window.addEventListener('resize', ajustar);
+})();
+</script>
 <script>
 (function () {
   var sel = [

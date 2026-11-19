@@ -29,12 +29,12 @@ h1, h2 { margin: 0; font-weight: 400; }
 .hero .bajada { font-size: 16px; line-height: 1.4; max-width: 255px; }
 .hero .texto { font-size: 14px; line-height: 1.65; max-width: 297px; }
 .hero .boton { align-self: center; background: var(--nori); color: var(--vino); }
-.hero .llave { right: 4px; top: 8px; width: 62px; transform: rotate(10deg); opacity: .9; }
+.hero .llave { right: 2px; top: -4px; width: 56px; transform: rotate(10deg); opacity: .9; }
 
 /* ---------- FOTO + DATOS ---------- */
 .foto-datos .foto { position: relative; height: 366px; background: var(--sand); }
 .foto-datos .foto img.retrato { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-.foto-datos .lucky { right: 10px; top: 54px; width: 130px; transform: rotate(-14deg); }
+.foto-datos .lucky { right: -32px; top: 40px; width: 150px; transform: rotate(-14deg); }
 .datos { padding: 0 24px; border-bottom: 1px solid var(--sand); }
 .dato { padding: 24px 0; border-bottom: 1px solid var(--sand); display: flex; flex-direction: column; gap: 6px; }
 .dato:last-child { border-bottom: 0; }
@@ -115,7 +115,7 @@ h1, h2 { margin: 0; font-weight: 400; }
 .incluye span { font-size: 11px; }
 .incluye p { font-size: 15px; line-height: 1.5; }
 .inversion .boton { background: var(--nori); color: var(--ash); }
-.inversion .nota { margin-top: -10px; font-size: 12px; line-height: 1.5; color: var(--sand); }
+.inversion .nota { align-self: stretch; margin-top: -10px; font-size: 12px; line-height: 1.5; color: var(--sand); }
 
 /* ---------- CIERRE ---------- */
 .cierre-final { background: var(--madera) url(img/puerta.jpg) center / cover no-repeat; color: var(--nori); padding: 80px 24px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px; }
@@ -126,6 +126,13 @@ h1, h2 { margin: 0; font-weight: 400; }
 .s-111d { display: none; }
 
 /* ================= ESCRITORIO ================= */
+@media (max-width: 899px) {
+  .hero { padding-top: 112px; }
+  .foto-datos .foto { height: 420px; }
+  .foto-datos .foto img.retrato { object-position: 50% 54%; }
+  .inversion { padding-left: 24px; padding-right: 24px; }
+}
+.una-linea { white-space: nowrap; }
 @media (min-width: 900px) {
   .hero { padding: 120px 9% 110px; min-height: 760px; align-items: center; text-align: center; gap: 30px; }
   .hero .label { font-size: 12px; letter-spacing: 4px; }
