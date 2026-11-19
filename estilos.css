@@ -212,7 +212,7 @@ h1, h2 { margin: 0; font-weight: 400; }
 
 /* ================= PAGINA DE PAGO ================= */
 .pago { max-width: 560px; margin: 0 auto; background: var(--nori); min-height: 100vh; }
-.pago-cab { background: var(--vino); color: var(--nori); padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 22px; }
+.pago-cab { background: linear-gradient(rgba(122,38,33,.78), rgba(122,38,33,.86)), url(img/agus.jpg) 50% 88% / cover no-repeat, var(--vino); min-height: 300px; color: var(--nori); padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 22px; }
 .pago-cab .volver { color: #EFE9DE; text-decoration: none; }
 .pago-cab .label.oro { color: var(--butter); }
 .pago-cab h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: 30px; letter-spacing: 1px; line-height: 1.05; }
@@ -224,7 +224,8 @@ h1, h2 { margin: 0; font-weight: 400; }
 .paso .num h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.1; }
 .paso .sub { margin-top: -12px; font-size: 14px; line-height: 1.6; }
 .precio-pago { background: var(--cafe); color: var(--nori); padding: 20px 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
-.precio-pago .label { color: var(--butter); font-size: 9px; }
+.precio-pago .antes { font-family: 'Jost', Helvetica, Arial, sans-serif; font-weight: 300; font-size: 14px; color: #8C8270; text-decoration: line-through; }
+.precio-pago .label { color: var(--butter); font-size: 9px; padding-top: 2px; }
 .precio-pago .monto { font-family: 'Jost', Helvetica, Arial, sans-serif; font-weight: 300; font-size: 30px; line-height: 1.1; }
 .cuenta { border: 1px solid var(--sand); }
 .cuenta > div { padding: 16px 18px; border-bottom: 1px solid var(--sand); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
