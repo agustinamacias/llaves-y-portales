@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservá tu lugar · Llaves y Portales</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#7A2621">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="fondo-pago">
+<main class="pago">
+
+  <section class="pago-cab">
+    <a class="label volver" href="index.html">← Volver</a>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div class="label oro">Llaves y Portales · 05.12</div>
+      <h1>RESERVÁ TU LUGAR</h1>
+      <p>¡Estás a solo dos pasos! Al hacer la transferencia recordá mandarme el comprobante por WhatsApp para confirmar tu lugar.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="num"><span>01</span><h2>Transferí el valor de tu lugar</h2></div>
+    <div class="precio-pago">
+      <div class="label">Precio fundadoras</div>
+      <div class="monto">$59.000</div>
+    </div>
+    <div class="cuenta">
+      <div><div><span class="label">Alias</span><span class="val" id="alias">mariaagustinamacias</span></div><button class="copiar" data-copiar="alias">COPIAR</button></div>
+      <div><div><span class="label">CBU / CVU</span><span class="val" id="cvu">0000003100018805734316</span></div><button class="copiar" data-copiar="cvu">COPIAR</button></div>
+      <div><div><span class="label">Titular</span><span class="val">Maria Agustina Macias · Mercado Pago</span></div></div>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="num"><span>02</span><h2>Mandame el comprobante</h2></div>
+    <p class="sub">Enviá la captura de la transferencia por WhatsApp para confirmar tu lugar.</p>
+    <a class="boton" href="https://wa.link/a7tm5e" target="_blank" rel="noopener">Enviar comprobante</a>
+  </section>
+
+  <section class="despues">
+    <div class="label">Qué pasa después</div>
+    <p>🗝️ Te confirmo tu lugar por WhatsApp.</p>
+    <p>🗝️ En los siguientes días te va a estar llegando el formulario de balance para que repases tu año antes del sábado 05.</p>
+    <p>🗝️ Unos días antes voy a estar armando un grupo de WhatsApp para pasarles toda la información.</p>
+  </section>
+
+  <section class="pie-datos">
+    <div class="label">Sábado 5 de diciembre · 10 a 13 hs<br>Galpón &amp; Co · Sarmiento 3060, Santa Fe</div>
+    <p>Los lugares se asignan por orden de pago. Inscripción abierta hasta el jueves 03/12 o hasta completar los 10 lugares.</p>
+  </section>
+
+  <section class="pago-cierre">
+    <img src="img/logo-agustina-macias.png" alt="Agustina Macías · Biodescodificación Empresarial">
+  </section>
+
+</main>
+<script>
+document.querySelectorAll('.copiar').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = document.getElementById(b.dataset.copiar).textContent.trim();
+    var ok = function () { b.textContent = 'COPIADO'; b.classList.add('ok'); setTimeout(function () { b.textContent = 'COPIAR'; b.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(ok, ok); }
+    else { var r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copiar)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); } catch (e) {} ok(); }
+  });
+});
+</script>
+</body>
+</html>
